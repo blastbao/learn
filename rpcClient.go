@@ -3,11 +3,12 @@ package main
 import (
 	"context"
 	"fmt"
-	"google.golang.org/grpc"
-	pb "learn/proto"
 	"log"
 	"sync"
 	"time"
+
+	pb "github.com/blastbao/learn/proto"
+	"google.golang.org/grpc"
 )
 
 var wg sync.WaitGroup

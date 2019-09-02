@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
-	"learn/pools"
 	"log"
 	"net"
 	"sync"
 	"time"
+
+	"github.com/blastbao/learn/pools"
 )
 
 func main() {

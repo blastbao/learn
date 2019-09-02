@@ -1,12 +1,13 @@
 package pools
 
 import (
+	"errors"
 	"net"
 	"sync"
 	"sync/atomic"
 	"time"
-	"errors"
 )
+
 var nowFunc = time.Now
 
 type Pool struct {
@@ -22,10 +23,10 @@ type Pool struct {
 	// 打开最大的连接数
 	MaxActive int
 
-    // Idle多久断开连接，小于服务器超时时间
+	// Idle多久断开连接，小于服务器超时时间
 	IdleTimeout time.Duration
 
-    // 配置最大连接数的时候，并且wait是true的时候，超过最大的连接，get的时候会阻塞，知道有连接放回到连接池
+	// 配置最大连接数的时候，并且wait是true的时候，超过最大的连接，get的时候会阻塞，知道有连接放回到连接池
 	Wait bool
 
 	// 超过多久时间 链接关闭
@@ -53,7 +54,6 @@ type poolConn struct {
 	created    time.Time //创建时间
 	next, prev *poolConn
 }
-
 
 func (p *Pool) lazyInit() {
 

@@ -3,10 +3,11 @@ package main
 import (
 	"context"
 	"fmt"
-	"google.golang.org/grpc"
-	pb "learn/proto"
 	"log"
 	"net"
+
+	pb "github.com/blastbao/learn/proto"
+	"google.golang.org/grpc"
 )
 
 // 定义服务端实现约定的接口
